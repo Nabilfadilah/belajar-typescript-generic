@@ -77,7 +77,21 @@ describe('Generic', () => {
         expect(entry.value).toBe("Hello")
     })
 
-    class Simplegeneric<T> {
+    // class Simplegeneric<T> {
+    //     private value?: T;
+
+    //     setValue(value: T) {
+    //         this.value = value
+    //     }
+
+    //     getValue(): T | undefined {
+    //         return this.value
+    //     }
+    // }
+
+    // Generic parameter default - video 72
+    // misal diisi string, <T = string> maka akan default string 
+    class Simplegeneric<T = string> {
         private value?: T;
 
         setValue(value: T) {
@@ -90,6 +104,7 @@ describe('Generic', () => {
     }
 
     it('should create simple generic', async () => {
+        // tapi kalau di sini jadi number maka akan number
         const simple = new Simplegeneric<string>()
         simple.setValue("Eldo")
 
