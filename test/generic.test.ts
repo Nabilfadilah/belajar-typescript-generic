@@ -67,4 +67,32 @@ describe('Generic', () => {
         expect(triple.seccond).toBe("Hello")
         expect(triple.third).toBe(true)
     })
+
+    // optional generic type - video 71
+    it('should support optional generic type', () => {
+
+        // jadi typescrip bisa mendeteksi, jadi tidak perlu explisit menentukan tipe datanya apa
+        const entry = new Entry(1, "Hello")
+        expect(entry.key).toBe(1)
+        expect(entry.value).toBe("Hello")
+    })
+
+    class Simplegeneric<T> {
+        private value?: T;
+
+        setValue(value: T) {
+            this.value = value
+        }
+
+        getValue(): T | undefined {
+            return this.value
+        }
+    }
+
+    it('should create simple generic', async () => {
+        const simple = new Simplegeneric<string>()
+        simple.setValue("Eldo")
+
+        expect(simple.getValue()!.toUpperCase()).toBe("ELDO")
+    })
 })
