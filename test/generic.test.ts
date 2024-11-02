@@ -148,4 +148,47 @@ describe('Generic', () => {
             totalManager: 10
         })
     })
+
+    // Generic Collection - video 74\
+    it('should support array', async () => {
+
+        const array = new Array<string>()
+        array.push("Eldo")
+        array.push("Sumardi")
+
+        expect(array[0].toUpperCase()).toBe('ELDO')
+        expect(array[1].toUpperCase()).toBe('SUMARDI')
+    }) 
+
+    it('should support set', () => {
+        const set = new Set<string>()
+        set.add('Eldo')
+        set.add('Sumardo')
+        set.add('Tisno')
+
+        expect(set.size).toBe(3)
+        expect(set.has('Eldo')).toBe(true)
+        expect(set.has('Sumardo')).toBe(true)
+    })
+
+    it('should support set', async () => {
+        const set = new Set<string>()
+        set.add("Eldo")
+        set.add("Sukijem")
+        set.add("Surajdi")
+
+        expect(set.size).toBe(3)
+        expect(set.has("Eldo")).toBe(true)
+        expect(set.has("Surajdi")).toBe(true)
+    })
+
+    // map
+    it('should support map', () => {
+        const map = new Map<string, number>()
+        map.set('Eldo', 1)
+        map.set('Kurnia', 2)
+
+        expect(map.get('Eldo')).toBe(1)
+        expect(map.get('Kurnia')).toBe(2)
+    })  
 })
