@@ -6,6 +6,15 @@ describe('Generic', () => {
         constructor(value: T) {
             this.value = value;
         }
+
+        // functioin didalam class?, ini jawabanya
+        get(): T {
+            return this.value
+        }
+
+        set(value: T) {
+            this.value = value
+        }
     }
 
     it('should support multiple data type', async () => {
@@ -20,6 +29,18 @@ describe('Generic', () => {
         // dataString.value = true
         const upper = dataString.value.toUpperCase();
         expect(upper).toBe("ELDO")
+    })
 
+    // generic funcction - video 69
+    function create<T> (value: T): T {
+        return value;
+    }
+
+    it('should support function generic', () => {
+        const result: string = create<string>("Ello")
+        expect(result).toBe("Ello")
+
+        const result2: number = create<number>(123)
+        expect(result2).toBe(123)
     })
 })
