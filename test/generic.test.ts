@@ -191,4 +191,28 @@ describe('Generic', () => {
         expect(map.get('Eldo')).toBe(1)
         expect(map.get('Kurnia')).toBe(2)
     })  
+
+    // generic promise - video 75
+    async function fetchData(value: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            setTimeout(() => {
+                if (value === "Eldo") {
+                    resolve("Hello NGABB " + value)
+                } else {
+                    reject('Not Found')
+                }
+            }, 1000)
+        })
+    }
+
+    it('should support promise', async () => {
+        const result = await fetchData('Eldo')
+        expect(result.toUpperCase()).toBe('HELLO NGABB ELDO')
+
+        try {
+            await fetchData('Dalton')
+        } catch (e) {
+            expect(e).toBe('Not Found')
+        }
+    })
 })
